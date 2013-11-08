@@ -21,7 +21,6 @@ namespace MyGym.Service.Models
         {
             try
             {
-                //UserInformation user = JsonConvert.DeserializeObject<UserInformation>(userjson);
                 if (!ValidateUser(user.Email, user.Nick))
                 {
                     return APIFunctions.ErrorResult(JsonMessage.NotFound);
