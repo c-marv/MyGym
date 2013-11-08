@@ -28,7 +28,7 @@ namespace MyGym.Service.Models
                 Usuario newuser = MyGymContext.DB.Usuario.Add(APIFunctions.UserToUsuario(user));
                 MyGymContext.DB.SaveChanges();
                 // Generamos la dieta
-                new DietRepository().CreateDiet(newuser.UsuarioID);
+                //new DietRepository().CreateDiet(newuser.UsuarioID);
                 return APIFunctions.SuccessResult(newuser.UsuarioID, JsonMessage.Success);
             }
             catch (Exception ex)

@@ -19,7 +19,7 @@ namespace MyGym.Service.Controllers
         public ActionResult Index(int userid)
         {
             var result = (new UserRepository()).Get(userid);
-            var usuario = GetData(JsonConvert.SerializeObject(result));
+            var usuario = APIFunctions.GetData<UserInformation>(JsonConvert.SerializeObject(result));
             return View(APIFunctions.UserToUsuario(usuario));
         }
         [HttpPost]
@@ -27,7 +27,7 @@ namespace MyGym.Service.Controllers
         {
             var result = (new UserRepository()).LogIn(user, password);
             //return Json(result, JsonRequestBehavior.AllowGet);
-            var usuario = GetData(JsonConvert.SerializeObject(result));
+            var usuario = APIFunctions.GetData<UserInformation>(JsonConvert.SerializeObject(result));
             if (usuario == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -43,23 +43,12 @@ namespace MyGym.Service.Controllers
         {
             var user = JsonConvert.DeserializeObject<UserInformation>(userdata);
             var result = (new UserRepository()).Add(user);
-            var usuario = GetData(JsonConvert.SerializeObject(result));
-            if (usuario == null)
+            var usuarioID = APIFunctions.GetData<int>(JsonConvert.SerializeObject(result));
+            if (usuarioID == default(int))
             {
                 return RedirectToAction("Register");
             }
-            return RedirectToAction("Index", "Home");
-        }
-        private UserInformation GetData(string result)
-        {
-            JObject data = (JObject)JsonConvert.DeserializeObject(result);
-            var success = bool.Parse(data["success"].ToString());
-            if (success)
-            {
-                UserInformation user = JsonConvert.DeserializeObject<UserInformation>(data["data"].ToString());
-                return user;
-            }
-            return null;
+            return RedirectToAction("Index", new { userid = usuarioID });
         }
     }
 }

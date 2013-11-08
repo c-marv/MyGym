@@ -199,11 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\APIHelper\JsonSamples\Diet\Diet.Get.json" />
-    <Content Include="Models\APIHelper\JsonSamples\Activity\Activity.GetUserActivities.json" />
-    <Content Include="Models\APIHelper\JsonSamples\Activity\Activity.AddUserActivity.Post.json" />
-    <None Include="Models\APIHelper\JsonSamples\Activity\Activity.AddUserActivity.Get.json" />
-    <Content Include="Models\APIHelper\JsonSamples\Activity\Activity.AddUserCollectionActivities.Get.json" />
-    <None Include="Models\APIHelper\JsonSamples\Activity\Activity.AddUserCollectionActivities.Post.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.Delete.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.LogIn.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.Update.Get.json" />

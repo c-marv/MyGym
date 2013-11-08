@@ -22,7 +22,9 @@
     };
     function Send() {
         var json = $("#registerform").serializeObject();
-        $.post('/Usuario/Register', { userdata: JSON.stringify(json) });
+        $.post('/Usuario/Register', { userdata: JSON.stringify(json) }, function () {
+            
+        });
     }
 </script>
 <h1>Formulario de Registro
