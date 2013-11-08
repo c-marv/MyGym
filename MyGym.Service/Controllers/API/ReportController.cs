@@ -1,4 +1,5 @@
-﻿using MyGym.Service.Models;
+﻿using MyGym.Service.Controllers.API.ErrorHandler;
+using MyGym.Service.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace MyGym.Service.Controllers.API
     public class ReportController : Controller
     {
         [HttpGet]
+        [APIErrorHandler]
         public JsonResult Get(int userid, string filter = "month", int weeks = 0)
         {
             var result = new ReportRepository().GetUserRecord(userid, filter, weeks);
