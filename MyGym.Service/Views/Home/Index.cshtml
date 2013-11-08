@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Inicio myGym";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+<section>
+    <script src="~/Public/jquery.js"></script>
+    <script>
+        
+    </script>
+    <style type="text/css">
+        section {
+            padding: 10px;
+        }
+    </style>
+    <div style="width: 50%; float: right;">
+    </div>
+    <div style="width: 50%; float: right;">
+        <h4>Iniciar Sesion</h4>
+        <form id="loginform" method="post" action="/Usuario/LogIn">
+            <section>
+                <input type="text" name="user" placeholder="Nick o Email" class="form-control" />
+            </section>
+            <section>
+                <input type="password" name="password" placeholder="Contraseña" class="form-control" />
+            </section>
+            <section>
+                <input type="submit" value="Log In" class="btn btn-default" />
+                <span>Aun no tienes cuenta?</span>
+                <a href="/Usuario/Register">Registrate</a>
+            </section>
+        </form>
+    </div>
+</section>

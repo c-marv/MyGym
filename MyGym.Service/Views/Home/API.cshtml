@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MyGym.Service.Models.APIHelper.APIObject>
+@{
+    ViewBag.Title = "API";
+    Layout = "~/Views/MainLayout.cshtml";
+    var group = Model.GroupBy(item => item.Controller);    
+}
+@foreach (var controller in group)
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">@controller.Key</div>
+        <div class="panel-body">
+            <div class="list-group">
+                @foreach (var item in controller)
+                {
+                    <a href="/Home/GetAPI/@item.ObjectId" class="list-group-item">@item.Action
+                        <span class="badge pull-right">@item.Type</span>
+                        @if (item.Parameters.Count > 0 & item.Parameters.FirstOrDefault(p => p.Definition == MyGym.Service.Models.APIHelper.Definition.BODY) == null)
+                        {
+                            foreach (var par in item.Parameters)
+	                        {
+                                if (par.Definition != MyGym.Service.Models.APIHelper.Definition.BODY)
+                                {
+                                    <text>/{@par.Name}</text>   
+                                }
+	                        }
+                        }
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+}

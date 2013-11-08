@@ -1,0 +1,18 @@
+﻿{
+	success : true,
+	data : {
+	  "UserID" : 1,
+	  "Email": "juan@gmail.com",
+	  "Password": "123456",
+	  "Nick": "Juan",
+	  "FirstName": "Perez",
+	  "LastName": "Fernandez",
+	  "Names": "Juan Carlos",
+	  "Sex": 1,
+	  "Weight": 68.5,
+	  "Height": 1.7,
+	  "PhysicalComplexion": 1,
+	  "DateOfBirth": "1990-10-25T00:00:00"
+	},
+	message : "Mensaje"
+}

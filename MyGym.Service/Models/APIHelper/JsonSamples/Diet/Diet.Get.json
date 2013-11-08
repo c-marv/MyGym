@@ -1,0 +1,26 @@
+﻿{
+	success : true,
+	data : [
+		{
+			"DietID" : 1,
+			"MealTime" : [
+				"Desayuno",
+				"Merienda"
+			],
+			"RecomendationID" : 1,
+			"Name" : "",
+			"ImageURL" : "http://localhost:8000/images/1.jpg"
+		},
+		...
+		,{
+			"DietID" : 20,
+			"MealTime" : [
+				"Almuerzo"
+			],
+			"RecomendationID" : 3,
+			"Name" : "",
+			"ImageURL" : "http://localhost:8000/images/30.jpg"
+		}
+	],
+	message : "Mensaje"
+}

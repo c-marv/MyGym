@@ -1,0 +1,5 @@
+﻿public string Get(int userid)
+{
+	HttpClient client = new HttpClient();
+	
+}

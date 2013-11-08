@@ -1,0 +1,73 @@
+﻿@model MyGym.Service.Models.APIHelper.APIObject
+@{
+    ViewBag.Title = "GetAPI";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+<h3>
+    <span class="label label-default">@Model.Type</span>
+    @Model.Controller/@Model.Action 
+    @if (Model.Parameters.Count > 0 & Model.Parameters.FirstOrDefault(p => p.Definition == MyGym.Service.Models.APIHelper.Definition.BODY) == null)
+    {
+        foreach (var item in Model.Parameters)
+        {
+            if (item.Definition != MyGym.Service.Models.APIHelper.Definition.BODY)
+            {
+                <text>/{@item.Name}</text>   
+            }
+        }   
+    }
+</h3>
+<p>@Model.Description</p>
+<div class="panel panel-primary">    
+    <div class="panel-heading">
+        Informacion Peticion
+    </div>
+    <div class="panel-body">
+        @if (Model.Parameters.Count > 0)
+        {
+            <span class="label label-default" style="margin:5px; font-size:medium;">Parametros</span>
+            <table style="margin:20px">
+                <tbody>
+                    <tr style="border:solid">
+                        <th style="width:20%" >Nombre</th>
+                        <th style="width:40%">Descripcion</th>
+                        <th style="width:40%">Informacion Adicional</th>
+                    </tr>
+                    @foreach (var item in Model.Parameters)
+                    {
+                        <tr style="border:solid">
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.Information</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>   
+        }
+        @if (Model.JsonPost != null)
+        {
+            <span class="label label-default" style="margin:5px; font-size:medium;">Formato de peticion JSON <b>value</b></span>
+            <pre>
+@Model.JsonPost
+            </pre>
+        }
+        <span class="label label-default" style="margin:5px; font-size:medium;">Ejemplo Peticion C#</span>
+        <pre>
+@Model.Sample
+        </pre>
+    </div>
+</div>
+@if (Model.JsonGet != null)
+{
+    <div class="panel panel-primary">    
+        <div class="panel-heading">
+            Informacion Respuesta
+        </div>
+        <div class="panel-body">
+            <span class="label label-default" style="margin:5px; font-size:medium;">Formato de respuesta JSON</span>
+            <pre>
+@Model.JsonGet
+            </pre>
+        </div>
+    </div>   
+}
