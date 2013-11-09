@@ -120,6 +120,7 @@
     <Compile Include="Controllers\API\ReportController.cs" />
     <Compile Include="Controllers\API\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RecomendationController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -130,6 +131,7 @@
     <Compile Include="Models\APIHelper\APIFunctions.cs" />
     <Compile Include="Models\DietRepository.cs" />
     <Compile Include="Models\ExerciseRepository.cs" />
+    <Compile Include="Models\RecomendationRepository.cs" />
     <Compile Include="Models\ReportRepository.cs" />
     <Compile Include="Models\RoutineRepository.cs" />
     <Compile Include="Models\UserRepository.cs" />
@@ -204,6 +206,8 @@
     <None Include="Models\APIHelper\JsonSamples\User\User.Delete.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.LogIn.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.Update.Get.json" />
+    <Content Include="Views\Recomendation\Index.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -26,7 +26,6 @@ namespace MyGym.Service.Controllers
         public ActionResult LogIn(string user, string password)
         {
             var result = (new UserRepository()).LogIn(user, password);
-            //return Json(result, JsonRequestBehavior.AllowGet);
             var usuario = APIFunctions.GetData<UserInformation>(JsonConvert.SerializeObject(result));
             if (usuario == null)
             {
@@ -44,11 +43,33 @@ namespace MyGym.Service.Controllers
             var user = JsonConvert.DeserializeObject<UserInformation>(userdata);
             var result = (new UserRepository()).Add(user);
             var usuarioID = APIFunctions.GetData<int>(JsonConvert.SerializeObject(result));
+            string redirecturl = new UrlHelper(Request.RequestContext).Action("Index", new { userid = usuarioID });
             if (usuarioID == default(int))
             {
-                return RedirectToAction("Register");
+                redirecturl = new UrlHelper(Request.RequestContext).Action("Register");
             }
-            return RedirectToAction("Index", new { userid = usuarioID });
+            return Json(new { Url = redirecturl });   
+        }
+        [HttpGet]
+        public ActionResult Edit(int userid)
+        {
+            var result = new UserRepository().Get(userid);
+            var user = APIFunctions.GetData<UserInformation>(JsonConvert.SerializeObject(result));
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Update(int userid, string userdata)
+        {
+            var user = JsonConvert.DeserializeObject<UserInformation>(userdata);
+            user.UserID = userid;
+            var result = new UserRepository().Update(user);
+            var data = APIFunctions.GetData<int>(JsonConvert.SerializeObject(result));
+            string redirecturl = new UrlHelper(Request.RequestContext).Action("Index", new { userid = data });
+            if (data == default(int))
+            {
+                redirecturl = new UrlHelper(Request.RequestContext).Action("Edit", new { userid = userid });
+            }
+            return Json(new { Url = redirecturl });
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MyGym.Data;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -19,6 +21,8 @@ namespace MyGym.Service
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            // Initialize Database
+            Database.SetInitializer<MyGymContext>(new MyGymInitializer());
         }
     }
 }

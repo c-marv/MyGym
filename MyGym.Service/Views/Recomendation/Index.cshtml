@@ -1,0 +1,21 @@
+﻿@model List<MyGym.Data.Entities.Recomendacion>
+@{
+    ViewBag.Title = "Recomendaciones";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+<a href="#" style="float:right">Nueva Recomendacion</a>
+<h1>Recomendaciones</h1>
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item">
+            <span class="badge">
+                <a href="/Recomendation/Delete/@item.RecomendacionID" style="color:white;">Eliminar</a>
+            </span>
+            <span class="badge">
+                <a href="/Recomendation/Edit/@item.RecomendacionID" style="color:white;">Editar</a>
+            </span>
+            <a href="/Recomendation/Get/@item.RecomendacionID" >@item.Nombre</a>
+        </li>
+    }
+</ul>

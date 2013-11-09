@@ -2,6 +2,24 @@
 <head>
     <title>@ViewBag.Title</title>
     <link href="~/Public/css/metro-bootstrap.css" rel="stylesheet" />
+    <script src="~/Public/jquery.js"></script>
+    <script type="text/javascript">
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    </script>
 </head>
 <body style="margin: 50px 100px; align-content: center">
     <header>

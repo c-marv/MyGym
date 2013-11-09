@@ -44,15 +44,16 @@ namespace MyGym.Data
         public MyGymContext()
             : base()
         {
-            Database.SetInitializer<MyGymContext>(new MyGymInitializer());
+            
         }
     }
-    public class MyGymInitializer : DropCreateDatabaseIfModelChanges<MyGymContext>
+    public class MyGymInitializer : DropCreateDatabaseAlways<MyGymContext>
     {
         protected override void Seed(MyGymContext context)
         {
-            // Usuarios
-            context.Usuario.Add(new Usuario() { 
+            #region Usuario
+            context.Usuario.Add(new Usuario()
+            {
                 ComplexionFisica = ComplexionFisica.Mediana,
                 Email = "yerson_kira@hotmail.com",
                 Estatura = 1.75,
@@ -66,10 +67,41 @@ namespace MyGym.Data
                 Sexo = Common.Enum.Sexo.Masculino,
             });
             context.SaveChanges();
-
-            // Actividades
+            #endregion
+            #region Alimentos
             
-            // Tiempo de Comida
+            #endregion
+            #region Recomendaciones
+            context.Recomendacion.Add(new Recomendacion() 
+            { 
+                Nombre = "Arroz con Leche",
+                Calorias = 200,
+                Proteinas = 300,
+                HidratosDeCarbono = 150,
+                Grasas = 350
+            });
+            context.Recomendacion.Add(new Recomendacion()
+            {
+                Nombre = "Batido Natural con Trozos de Kiwi",
+                Calorias = 200,
+                Proteinas = 300,
+                HidratosDeCarbono = 150,
+                Grasas = 350
+            });
+            context.SaveChanges();
+            #endregion
+            #region Dieta
+            context.Dieta.Add(new Dieta() 
+            { 
+                UsuarioID = 1,
+                Dia = Dia.Lunes,
+                Calorias = 300,
+                Grasas = 100,
+                Proteinas = 200,
+                HidratosCarbono = 200
+            });
+            #endregion
+            #region Tiempos de Comida
             context.TiempoDeComida.Add(new TiempoDeComida()
             {
                 Nombre = TiempoComida.Desayuno,
@@ -101,6 +133,7 @@ namespace MyGym.Data
                 HoraFinal = new TimeSpan(20, 0, 0)
             });
             context.SaveChanges();
+            #endregion
             base.Seed(context);
         }
     }

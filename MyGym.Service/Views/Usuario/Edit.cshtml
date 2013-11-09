@@ -1,19 +1,19 @@
 ﻿@using MyGym.Common.Enum
+@model MyGym.Common.UserInformation
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/MainLayout.cshtml";
 }
+<script src="~/Public/jquery.js"></script>
 <script type="text/javascript">
-    function Send() {
+    function Save() {
         var json = $("#registerform").serializeObject();
-        $.post('/Usuario/Register', { userdata: JSON.stringify(json) }, function (response) {
-            window.location.href = response.Url;
+        $.post('/Usuario/Update?userid=@Model.UserID', { userdata: JSON.stringify(json) }, function (res) {
+            window.location.href = res.Url;
         });
     }
 </script>
-<h1>Formulario de Registro
-</h1>
-<form id="registerform" action="/Usuario/Register" method="post">
+<form id="registerform" action="/Usuario/Update?userid=@Model.UserID" method="post">
     <div class="panel panel-info">
         <div class="panel-heading">
             Informacion Personal
@@ -22,19 +22,19 @@
             <table>
                 <tr>
                     <td><label>Nombres</label></td>
-                    <td><input type="text" name="Names" placeholder="Juan Carlos" class="form-control" /></td>
+                    <td><input type="text" name="Names" value="@Model.Names" placeholder="Juan Carlos" class="form-control" /></td>
                 </tr>
                 <tr>
                     <td><label>Apellido Paterno</label></td>
-                    <td><input type="text" name="FirstName" placeholder="Cortez" class="form-control" /></td>
+                    <td><input type="text" name="FirstName" value="@Model.FirstName" placeholder="Cortez" class="form-control" /></td>
                 </tr>
                 <tr>
                     <td><label>Apellido Materno</label></td>
-                    <td><input type="text" name="LastName" placeholder="Fernandez" class="form-control" /></td>
+                    <td><input type="text" name="LastName" value="@Model.LastName" placeholder="Fernandez" class="form-control" /></td>
                 </tr>
                 <tr>
                     <td><label>Fecha de Nacimiento</label></td>
-                    <td><input type="date" name="DateOfBirth" class="form-control" /></td>
+                    <td><input type="date" name="DateOfBirth" value="@Model.DateOfBirth.ToShortDateString()" class="form-control" /></td>
                 </tr>
             </table>
         </div>
@@ -47,15 +47,15 @@
             <table>
                 <tr>
                     <td><label>Email</label></td>
-                    <td><input type="email" name="Email" class="form-control" /></td>
+                    <td><input type="email" name="Email" value="@Model.Email" class="form-control" /></td>
                 </tr>
                 <tr>
                     <td><label>Nick : </label></td>
-                    <td><input type="text" name="Nick" placeholder="Juan" class="form-control" /></td>
+                    <td><input type="text" name="Nick" value="@Model.Nick" placeholder="Juan" class="form-control" /></td>
                 </tr>
                 <tr>
                     <td><label>Contraseña : </label></td>
-                    <td><input type="password" name="Password" class="form-control" /></td>
+                    <td><input type="password" name="Password" value="@Model.Password" class="form-control" /></td>
                 </tr>
             </table>
         </div>
@@ -70,7 +70,7 @@
                     <td><label>Peso</label></td>
                     <td>
                         <div class="input-group">
-                            <input type="text" name="Weight" placeholder="69" class="form-control" />
+                            <input type="text" name="Weight" value="@Model.Weight" placeholder="69" class="form-control" />
                             <span class="input-group-addon">grs</span>
                         </div>
                     </td>
@@ -79,7 +79,7 @@
                     <td><label>Altura</label></td>
                     <td>
                         <div class="input-group">
-                            <input type="text" name="Heigth" placeholder="1.70" class="form-control" />
+                            <input type="text" name="Heigth" value="@Model.Height" placeholder="1.70" class="form-control" />
                             <span class="input-group-addon">mts</span>
                         </div>
                     </td>
@@ -87,7 +87,7 @@
                 <tr>
                     <td><label>Sexo</label></td>
                     <td>
-                        <select name="Sex">
+                        <select name="Sex" >
                             <option value="Femenino">@Sexo.Femenino</option>
                             <option value="Masculino">@Sexo.Masculino</option>
                         </select>
@@ -96,7 +96,7 @@
                 <tr>
                     <td><label>Complexion Fisica</label></td>
                     <td>
-                        <select name="PhysicalComplexion">
+                        <select name="PhysicalComplexion" >
                             <option value="@ComplexionFisica.Pequena">@ComplexionFisica.Pequena</option>
                             <option value="@ComplexionFisica.Mediana">@ComplexionFisica.Mediana</option>
                             <option value="@ComplexionFisica.Grande">@ComplexionFisica.Grande</option>
@@ -117,7 +117,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="button" value="Enviar" class="btn btn-default" onclick="Send()" />
+                        <input type="button" value="Salvar" class="btn btn-default" onclick="Save()" />
                     </td>
                 </tr>
             </table>
