@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGym.Common", "MyGym.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGym.Service", "MyGym.Service\MyGym.Service.csproj", "{2FE85DB0-7540-4C66-A6E2-C3458FB43DEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGym.Client.Library", "MyGym.Client.Library\MyGym.Client.Library.csproj", "{1FCD0BBB-BD70-42BC-96E1-106932107BA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2FE85DB0-7540-4C66-A6E2-C3458FB43DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FE85DB0-7540-4C66-A6E2-C3458FB43DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FE85DB0-7540-4C66-A6E2-C3458FB43DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCD0BBB-BD70-42BC-96E1-106932107BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCD0BBB-BD70-42BC-96E1-106932107BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCD0BBB-BD70-42BC-96E1-106932107BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCD0BBB-BD70-42BC-96E1-106932107BA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
