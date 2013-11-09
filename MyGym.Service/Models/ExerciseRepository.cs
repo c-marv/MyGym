@@ -1,4 +1,5 @@
-﻿using MyGym.Data;
+﻿using MyGym.Common.Enum;
+using MyGym.Data;
 using MyGym.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace MyGym.Service.Models
         /// </summary>
         /// <param name="type">es el tipo de ejercicio</param>
         /// <returns></returns>
-        public IEnumerable<Ejercicio> GetByType(string type)
+        public IEnumerable<Ejercicio> GetByType(TipoEjercicio type)
         {
             return from x in MyGymContext.DB.Ejercicio.ToList() where x.Tipo.Equals(type) select x;
         }

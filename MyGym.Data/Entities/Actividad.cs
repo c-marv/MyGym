@@ -13,7 +13,7 @@ namespace MyGym.Data.Entities
     {
         [Key]
         public int ActividadID { get; set; }
-
+        public DateTime Fecha { get; set; }
         public int RutinaID { get; set; }
         public int EjercicioID { get; set; }
         [ForeignKey("RutinaID")]

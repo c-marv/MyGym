@@ -164,54 +164,33 @@ namespace MyGym.Service.Models.APIHelper
                 }
             });
             #endregion
-            #region Activity API
-            string activitypath = currentpath + "\\JsonSamples\\Activity\\";
+            #region Exercise API
             context.API.Add(new APIObject()
             {
-                Controller = "Activity",
-                Action = "GetUserActivities",
-                Description = "Retorna las actividades de un usuario",
-                JsonGet = File.OpenText(activitypath + "Activity.GetUserActivities.json").ReadToEnd(),
+                Controller = "Routine",
+                Action = "Get",
+                JsonGet = System.IO.File.OpenText(currentpath + "\\JsonSamples\\Diet\\Diet.Get.json").ReadToEnd(),
                 JsonPost = null,
+                Description = "Retorna la rutina del usuario",
                 Type = Tipo.GET,
-                Parameters = new List<APIParameter>() 
-                { 
+                Parameters = new List<APIParameter>()
+                {
                     new APIParameter()
                     {
-                        Name = "userid",
-                        Description = "Representa el identificador unico de cada usuario del cual se quiere obtener su dieta",
-                        Information = "Parametro definido en la URL",
-                        Definition = Definition.URL
-                    }
-                }
-            });
-            context.API.Add(new APIObject()
-            {
-                Controller = "Activity",
-                Action = "AddUserActivity",
-                Description = "Adiciona una nueva actividad que realiza el usuario",
-                JsonGet = File.OpenText(activitypath + "Activity.AddUserActivity.Get.json").ReadToEnd(),
-                JsonPost = File.OpenText(activitypath + "Activity.AddUserActivity.Post.json").ReadToEnd(),
-                Type = Tipo.POST,
-                Parameters = new List<APIParameter>() 
-                { 
-                    new APIParameter()
-                    {
-                        Name = "userid",
-                        Description = "Representa el identificador unico de cada usuario del cual se quiere obtener su dieta",
-                        Information = "Parametro definido en la URL",
-                        Definition = Definition.URL
+                        Name="userID",
+                        Description="Representa el id del usuario, del cual queremos obtener la rutina de ejercicios",
+                        Definition=Models.APIHelper.Definition.URL,
+                        Information="Parametro definido en la url"
                     },
                     new APIParameter()
                     {
-                        Name = "activitydata",
-                        Description = "Representacion en JSON de la nueva actividad",
-                        Information = "Parametro definido el cuerpo (BODY) de la peticion",
-                        Definition = Definition.BODY
+                        Name="mode",
+                        Description="Representa el modo en el cual el usuario quiere la rutina de 3 o 5 dias.",
+                        Definition=Models.APIHelper.Definition.URL,
+                        Information="Parametro definido en la url"
                     }
                 }
             });
-            context.SaveChanges();
             #endregion
             base.Seed(context);
         }

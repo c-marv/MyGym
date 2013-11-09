@@ -130,6 +130,7 @@
     <Compile Include="Models\DietRepository.cs" />
     <Compile Include="Models\ExerciseRepository.cs" />
     <Compile Include="Models\ReportRepository.cs" />
+    <Compile Include="Models\RoutineRepository.cs" />
     <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
