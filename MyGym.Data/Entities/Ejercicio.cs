@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyGym.Common.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,6 +21,6 @@ namespace MyGym.Data.Entities
         public int Distancia { get; set; }
         public int Peso { get; set; }
         public string Descripcion { get; set; }
-        public string Tipo { get; set; }
+        public TipoEjercicio Tipo { get; set; }
     }
 }

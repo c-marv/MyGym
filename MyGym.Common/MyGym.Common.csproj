@@ -42,6 +42,7 @@
     <Compile Include="Enum\EstadoNutricional.cs" />
     <Compile Include="Enum\Nivel.cs" />
     <Compile Include="Enum\Sexo.cs" />
+    <Compile Include="Enum\TipoEjercicio.cs" />
     <Compile Include="UserActivity.cs" />
     <Compile Include="Enum\ComplexionFisica.cs" />
     <Compile Include="Enum\Dia.cs" />
