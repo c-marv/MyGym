@@ -53,7 +53,7 @@ namespace MyGym.Service.Controllers.API
             JObject login = (JObject)JsonConvert.DeserializeObject(logindata);
             if (login["user"] != null & login["password"] != null)
             {
-                var result = (new UserRepository()).LogIn(login["user"].ToString(), login["pasword"].ToString());
+                var result = (new UserRepository()).LogIn(login["user"].ToString(), login["password"].ToString());
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
             return Json(APIFunctions.ErrorResult(JsonMessage.BadRequest), JsonRequestBehavior.AllowGet);
