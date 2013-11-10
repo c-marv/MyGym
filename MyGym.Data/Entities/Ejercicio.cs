@@ -20,7 +20,13 @@ namespace MyGym.Data.Entities
         public int Duracion { get; set; }
         public int Distancia { get; set; }
         public int Peso { get; set; }
-        public string Descripcion { get; set; }
+        public int Calorias { get; set; }
+        public virtual ICollection<Instruccion> Instruccion { get; set; }
+        //fotos
         public TipoEjercicio Tipo { get; set; }
+        public Ejercicio()
+        {
+            Instruccion = new HashSet<Instruccion>();
+        }
     }
 }
