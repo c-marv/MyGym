@@ -69,11 +69,11 @@ namespace MyGym.Data
             context.SaveChanges();
             #endregion
             #region Alimentos
-            
+
             #endregion
             #region Recomendaciones
-            context.Recomendacion.Add(new Recomendacion() 
-            { 
+            context.Recomendacion.Add(new Recomendacion()
+            {
                 Nombre = "Arroz con Leche",
                 Calorias = 200,
                 Proteinas = 300,
@@ -91,8 +91,8 @@ namespace MyGym.Data
             context.SaveChanges();
             #endregion
             #region Dieta
-            context.Dieta.Add(new Dieta() 
-            { 
+            context.Dieta.Add(new Dieta()
+            {
                 UsuarioID = 1,
                 Dia = Dia.Lunes,
                 Calorias = 300,
@@ -133,6 +133,19 @@ namespace MyGym.Data
                 HoraFinal = new TimeSpan(20, 0, 0)
             });
             context.SaveChanges();
+            #endregion
+            #region Ejercicios
+            #region Gimnasia
+            {
+                context.Ejercicio.Add(new Ejercicio()
+                {
+                    Tipo = TipoEjercicio.Gimnastics,
+                    Nombre = "Sentadillas libres",
+                    Descripcion=""
+                });
+                context.SaveChanges();
+            }
+            #endregion
             #endregion
             base.Seed(context);
         }

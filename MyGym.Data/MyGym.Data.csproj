@@ -50,6 +50,7 @@
     <Compile Include="Entities\Ejercicio.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\Historial.cs" />
+    <Compile Include="Entities\Instruccion.cs" />
     <Compile Include="Entities\PreferenciaTiempoComida.cs" />
     <Compile Include="Entities\Recomendacion.cs" />
     <Compile Include="Entities\Rutina.cs" />
