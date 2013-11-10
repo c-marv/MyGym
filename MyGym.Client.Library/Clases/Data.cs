@@ -42,6 +42,9 @@ namespace MyGym.Client.Library.Clases
         [JsonProperty("PhysicalComplexion")]
         public int PhysicalComplexion { get; set; }
 
+        [JsonProperty("LevelActivity")]
+        public int LevelActivity { get; set; }
+
         [JsonProperty("DateOfBirth")]
         public DateTime DateOfBirth { get; set; }
     }
