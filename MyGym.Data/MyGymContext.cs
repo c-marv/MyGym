@@ -44,7 +44,7 @@ namespace MyGym.Data
         public MyGymContext()
             : base()
         {
-            
+
         }
     }
     public class MyGymInitializer : DropCreateDatabaseAlways<MyGymContext>
@@ -298,7 +298,7 @@ namespace MyGym.Data
                     Tipo = TipoEjercicio.Cardio,
                     Nombre = "Correr",
                     Distancia = 0.5,
-                    Sets=1
+                    Sets = 1
                 });
                 context.Ejercicio.Add(new Ejercicio()
                 {
@@ -311,8 +311,85 @@ namespace MyGym.Data
                 #region pesas
                 context.Ejercicio.Add(new Ejercicio()
                 {
-                    Tipo=TipoEjercicio.Weights,
-
+                    Tipo = TipoEjercicio.Weights,
+                    Nombre = "DeadLift",
+                    Repeticiones = 5,
+                    Sets = 5,
+                    Peso = 50,
+                    Instruccion = new HashSet<Instruccion>()
+                    {
+                        new Instruccion()
+                        {
+                             Content="Tenga una postura natural con los pies dabajo de la cadera",
+                             Step=1
+                        },
+                        new Instruccion()
+                        {
+                             Content="Debe agarrar el peso simetricamente, ya sea paralelo, gancho o mixto",
+                             Step=2
+                        },
+                        new Instruccion()
+                        {
+                             Content="Hombros ligeramente delante de la barra",
+                             Step=3
+                        },
+                        new Instruccion()
+                        {
+                             Content="La parte interna del los codos deben estar paralelos",
+                             Step=4
+                        },
+                        new Instruccion()
+                        {
+                             Content="Mantenga el peso en los talones",
+                             Step=5
+                        },
+                        new Instruccion()
+                        {
+                             Content="El recorrido de la barra hacia arriba y abajo cerca de las piernas",
+                             Step=6
+                        },
+                        new Instruccion()
+                        {
+                             Content="Mantenga la cabeza hacia adelante",
+                             Step=7
+                        },
+                    }
+                });
+                context.Ejercicio.Add(new Ejercicio()
+                {
+                    Tipo = TipoEjercicio.Weights,
+                    Nombre = "Press de hombros",
+                    Sets = 5,
+                    Repeticiones = 5,
+                    Peso = 20,
+                    Instruccion = new HashSet<Instruccion>()
+                    {
+                        new Instruccion()
+                        {
+                            Content="Tomar  la  barra  del soporte o cargarla desde la posición de  rack.  La  barra  descansa  en  los hombros  con  un  agarre  levemente más  ancho  que  el  ancho  de  los hombros.",
+                            Step=1
+                        },
+                        new Instruccion()
+                        {
+                            Content="Los  codos  están  por debajo  y  al  frente  de  la  barra.  Los pies deben estar aproximadamente en el mismo ancho que los hombros.",
+                            Step=2
+                        },
+                        new Instruccion()
+                        {
+                            Content="La cabeza está  levemente  inclinada hacia atrás para permitir el paso de la barra. ",
+                            Step=3
+                        },
+                        new Instruccion()
+                        {
+                            Content="Empuje  la  barra  a  una posición directamente encima de la cabeza.",
+                            Step=4
+                        },
+                        new Instruccion()
+                        {
+                            Content="Empuje  la  barra  a  una posición directamente encima de la cabeza.",
+                            Step=4
+                        }
+                    }
                 });
                 #endregion
             }
