@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+<script src="~/Public/jquery.js"></script>
+<script type="text/javascript">
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+    function SaveGroup() {
+        var json = $('#groupform').serializeObject();
+        $.post('/Group/Create', { groupdata: JSON.stringify(json) }, function (res) {
+            window.location.href = res.Url;
+        });
+    }
+</script>
+<form id="groupform">
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td>
+                <input type="hidden" name="GroupID"  />
+                <input type="text" name="Nombre"  />
+            </td>
+        </tr>
+        <tr>
+            <td>Recomendacion Maxima</td>
+            <td>
+                <input type="number" name="RecomendacionMaxima"  />
+            </td>
+        </tr>
+        <tr>
+            <td>Recomendacion Minima</td>
+            <td>
+                <input type="number" name="RecomendacionMinima"  />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Guardar" onclick="SaveGroup()" />
+            </td>
+        </tr>
+    </table>
+</form>

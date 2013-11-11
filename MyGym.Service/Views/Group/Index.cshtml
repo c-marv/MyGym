@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MyGym.Data.Entities.Grupo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+<a href="/Group/Create">Nuevo Grupo</a>
+<h1>Grupos</h1>
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item">
+            <span class="badge">
+                <a href="/Group/Delete?groupid=@item.GrupoID" style="color:white;">Eliminar</a>
+            </span>
+            <span class="badge">
+                <a href="/Group/Edit?groupid=@item.GrupoID" style="color:white;">Editar</a>
+            </span>
+            <label>@item.Nombre</label>  
+            @*<a href="/Group/Get?groupid=@item.GrupoID" >@item.Nombre</a>*@
+        </li>
+    }
+</ul>
