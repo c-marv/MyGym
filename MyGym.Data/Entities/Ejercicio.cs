@@ -18,15 +18,16 @@ namespace MyGym.Data.Entities
         public int Repeticiones { get; set; }
         public int Sets { get; set; }
         public int Duracion { get; set; }
-        public int Distancia { get; set; }
+        public double Distancia { get; set; }
         public int Peso { get; set; }
         public int Calorias { get; set; }
         public virtual ICollection<Instruccion> Instruccion { get; set; }
-        //fotos
+        public virtual ICollection<Imagen> Imagen { get; set; }
         public TipoEjercicio Tipo { get; set; }
         public Ejercicio()
         {
             Instruccion = new HashSet<Instruccion>();
+            Imagen = new HashSet<Imagen>();
         }
     }
 }
