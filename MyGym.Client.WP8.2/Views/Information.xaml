@@ -1,0 +1,61 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="MyGym.Client.WP8._2.Views.Information"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/image/iconos/fondo3.png"/>
+        </Grid.Background>
+        <StackPanel >
+
+            <TextBlock Text="Information" FontSize="80" HorizontalAlignment="Center"/>
+            <TextBlock Text="Height [cm]:"/>
+            <Slider Value="160" Minimum="30" Maximum="250"  Name="sldAltura" FontSize="30" />
+            <TextBlock Name="txtAltura" Text="{Binding Value, ElementName=sldAltura}" Foreground="White" HorizontalAlignment="Center" />
+            <TextBlock Text="Weight [Kg]:"/>
+            <Slider Value="70" Minimum="30" Maximum="250" Name="sldPeso" FontSize="30"/>
+            <TextBlock Name="txtPeso" Text="{Binding Value, ElementName=sldPeso}"  Foreground="White" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Constitution:" Margin="0,0,30,0"/>
+            </StackPanel>
+            <TextBlock Name="txtIntruccion" Visibility="Collapsed"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border Name="borde1"  BorderThickness="3">
+                    <Button Name="btnComplexionBaja" Width="100" Height="100" >
+                        <Button.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/image/iconos/pequeno.jpg" />
+                        </Button.Background>
+                    </Button>
+                </Border>
+                <Border Name="borde2"  BorderThickness="3">
+                    <Button Name="btnComplexionMedia" Width="100" Height="100" >
+                        <Button.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/image/iconos/medio.jpg" />
+                        </Button.Background>
+                    </Button>
+                </Border>
+                <Border Name="borde3"  BorderThickness="3">
+                    <Button Name="btnComplexionAlta" Width="100" Height="100" >
+                        <Button.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/image/iconos/grande.jpg" />
+                        </Button.Background>
+                    </Button>
+                </Border>
+            </StackPanel>
+            <Button Name="btnGuardar" Margin="0,160" Content="Save information" Width="270"  />
+        </StackPanel>
+    </Grid>
+</phone:PhoneApplicationPage>
