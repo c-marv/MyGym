@@ -45,7 +45,7 @@
       <HintPath>..\MyGym.Common\bin\Debug\MyGym.Common.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>E:\carrera\Clases_Windows_Phone\Diplomado WP8\Proyectos Diplomado WP8\Tras aplicar MVVM\RecetarioWP7\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.15\lib\portable-net40+sl4+win8+wp71\System.Net.Http.dll</HintPath>

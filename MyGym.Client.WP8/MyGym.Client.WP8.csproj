@@ -93,8 +93,46 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Activity.cs" />
+    <Compile Include="Data\ActivityComplete.cs" />
+    <Compile Include="Data\LoadActivity.cs" />
+    <Compile Include="Ioc\Interfaces\IContainer.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Models\RecipeDataCommon.cs" />
+    <Compile Include="Models\RecipeDataGroup.cs" />
+    <Compile Include="Models\RecipeDataItem.cs" />
+    <Compile Include="Models\RecipeRepository.cs" />
+    <Compile Include="Models\UserRecipeImages.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\Interfaces\IDialogService.cs" />
+    <Compile Include="Services\Interfaces\ILiveTileService.cs" />
+    <Compile Include="Services\Interfaces\ILocalDataService.cs" />
+    <Compile Include="Services\Interfaces\INavigationService.cs" />
+    <Compile Include="Services\Interfaces\IReminderService.cs" />
+    <Compile Include="Services\Interfaces\IShareService.cs" />
+    <Compile Include="Services\Interfaces\IStorageService.cs" />
+    <Compile Include="Services\LiveTileService.cs" />
+    <Compile Include="Services\LocalDataService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\ReminderService.cs" />
+    <Compile Include="Services\ShareService.cs" />
+    <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\ViewModelLocatorService.cs" />
+    <Compile Include="ViewModels\Base\BindableBase.cs" />
+    <Compile Include="ViewModels\Base\DelegateCommand.cs" />
+    <Compile Include="ViewModels\GroupDetailViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IGroupDetailViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IMainViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IRecipeDetailViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RecipeDetailViewModel.cs" />
+    <Compile Include="Views\Activities.xaml.cs">
+      <DependentUpon>Activities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupDetailPage.xaml.cs">
+      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,13 +141,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Information.xaml.cs">
+      <DependentUpon>Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyData.xaml.cs">
+      <DependentUpon>MyData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecipeDetailPage.xaml.cs">
+      <DependentUpon>RecipeDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\Activities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecipeDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,12 +207,44 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="image\iconos\cruz.jpg" />
+    <Content Include="image\iconos\estadistica.jpg" />
+    <Content Include="image\iconos\fodoEntrada.jpg" />
+    <Content Include="image\iconos\fondo3.png" />
+    <Content Include="image\iconos\fondoAct.jpg" />
+    <Content Include="image\iconos\fondoEstadisticas.jpg" />
+    <Content Include="image\iconos\fondoInicio.jpg" />
+    <Content Include="image\iconos\fondoriesgos.jpg" />
+    <Content Include="image\iconos\foto_hombre.png" />
+    <Content Include="image\iconos\foto_mujer.png" />
+    <Content Include="image\iconos\grande.jpg" />
+    <Content Include="image\iconos\iconoActividadDiaria.jpg" />
+    <Content Include="image\iconos\iconoActualiza.jpg" />
+    <Content Include="image\iconos\iconoAlimentacionDiaria.jpg" />
+    <Content Include="image\iconos\iconoAlmuerzo.jpg" />
+    <Content Include="image\iconos\iconoEjercicio.jpg" />
+    <Content Include="image\iconos\iconoEstadistica.jpg" />
+    <Content Include="image\iconos\iconoGim.jpg" />
+    <Content Include="image\iconos\iconohome.jpg" />
+    <Content Include="image\iconos\iconoLugar.jpg" />
+    <Content Include="image\iconos\iconoRiesgos.jpg" />
+    <Content Include="image\iconos\medio.jpg" />
+    <Content Include="image\iconos\pequeno.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\carrera\Semestres UMSA\6 Sexto Semestre\HS proy\HS fin corregido1 - Copy\HS\HS\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
