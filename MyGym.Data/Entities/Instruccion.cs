@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGym.Data.Entities
 {
-    class Instruccion
+    public class Instruccion
     {
         public int InstruccionID { get; set; }
         public string Content { get; set; }

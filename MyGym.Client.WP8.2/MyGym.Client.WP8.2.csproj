@@ -198,6 +198,12 @@
       <HintPath>E:\carrera\Semestres UMSA\6 Sexto Semestre\HS proy\HS fin corregido1 - Copy\HS\HS\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyGym.Client.Library\MyGym.Client.Library.csproj">
+      <Project>{1FCD0BBB-BD70-42BC-96E1-106932107BA2}</Project>
+      <Name>MyGym.Client.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

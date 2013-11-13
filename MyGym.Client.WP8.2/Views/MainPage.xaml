@@ -14,14 +14,15 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <StackPanel Background="#FF04141B">
+    
+    <StackPanel Background="#FF002E2D">
         <TextBlock Text="MYGYM" FontSize="45" TextAlignment="Center" Foreground="White"/>
         <Grid>
             <Image 
         		x:Name="btnConfigurations"
         		HorizontalAlignment="Left" 
-                Height="138" 
-                Margin="18,12,0,0" 
+                Height="162" 
+                Margin="18,516,0,-50" 
                 VerticalAlignment="Top" 
                 Width="215" Source="/image/iconos/iconoActualiza.jpg" 
                 Stretch="Fill" 
@@ -29,8 +30,8 @@
             <Image 
         		x:Name="btnRoutines"
         		HorizontalAlignment="Left" 
-                Height="329" 
-                Margin="16,174,0,0" 
+                Height="256" 
+                Margin="16,12,0,0" 
                 VerticalAlignment="Top"
                 Width="215" Source="/image/iconos/iconoEjercicio.jpg" 
                 Stretch="Fill"
@@ -38,21 +39,18 @@
             <Image 
         		x:Name="btnDiet"
         		HorizontalAlignment="Left"
-                Height="192" Margin="16,529,0,0" 
+                Height="194" Margin="16,293,0,0" 
                 VerticalAlignment="Top" Width="441" 
                 Source="/image/iconos/iconoAlmuerzo.jpg" 
                 Stretch="Fill" />
             <Image 
         		x:Name="btnState"
         		HorizontalAlignment="Left" 
-                Height="200" Margin="255,10,0,0" 
+                Height="256" Margin="255,12,0,0" 
                 VerticalAlignment="Top" Width="202" Source="/image/iconos/iconoRiesgos.jpg" Stretch="Fill" />
             <Image 
         		x:Name="btnStatistic"
-        		HorizontalAlignment="Left" Height="135" Margin="255,229,0,0" VerticalAlignment="Top" Width="202" Source="/image/iconos/iconoEstadistica.jpg" Stretch="Fill" />
-            <Image 
-        		x:Name="btnAcivities"
-        		HorizontalAlignment="Left" Height="120" Margin="256,383,0,0" VerticalAlignment="Top" Width="202" Source="/image/iconos/iconoActividadDiaria.jpg" Stretch="Fill"  RenderTransformOrigin="0.689,0.558" />
+        		HorizontalAlignment="Left" Height="163" Margin="255,517,0,-52" VerticalAlignment="Top" Width="202" Source="/image/iconos/iconoEstadistica.jpg" Stretch="Fill" />
         </Grid>
     </StackPanel>
 

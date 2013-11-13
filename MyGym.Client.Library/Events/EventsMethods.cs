@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using MyGym.Client.Library.Clases;
-using MyGym.Common;
-
+using MyGym.Common2;
 namespace MyGym.Client.Library
 {
     namespace Events
@@ -35,25 +34,25 @@ namespace MyGym.Client.Library
                 //tbn al momento de enviar para guardar mandar como tipo int a sexo, complexion y nivel
                 HttpClient client = new HttpClient();
 
-                MyGym.Common.Enum.ComplexionFisica compl = MyGym.Common.Enum.ComplexionFisica.Pequena;
+                MyGym.Common2.Enum.ComplexionFisica compl = MyGym.Common2.Enum.ComplexionFisica.Pequena;
                 if (complexion == 1)
-                    compl = MyGym.Common.Enum.ComplexionFisica.Mediana;
+                    compl = MyGym.Common2.Enum.ComplexionFisica.Mediana;
                 if (complexion == 2)
-                    compl = MyGym.Common.Enum.ComplexionFisica.Grande;
+                    compl = MyGym.Common2.Enum.ComplexionFisica.Grande;
                  
-                MyGym.Common.Enum.Nivel niv=MyGym.Common.Enum.Nivel.MuyLeve;
+                MyGym.Common2.Enum.Nivel niv=MyGym.Common2.Enum.Nivel.MuyLeve;
                 if(nivel==1)
-                    niv=MyGym.Common.Enum.Nivel.Leve;
+                    niv=MyGym.Common2.Enum.Nivel.Leve;
                 if(nivel==2)
-                    niv=MyGym.Common.Enum.Nivel.Moderado;
+                    niv=MyGym.Common2.Enum.Nivel.Moderado;
                 if(nivel==3)
-                    niv=MyGym.Common.Enum.Nivel.Intenso;
+                    niv=MyGym.Common2.Enum.Nivel.Intenso;
                 if(nivel==4)
-                    niv=MyGym.Common.Enum.Nivel.Excepcional;
+                    niv=MyGym.Common2.Enum.Nivel.Excepcional;
 
-                MyGym.Common.Enum.Sexo sexx = MyGym.Common.Enum.Sexo.Femenino;
+                MyGym.Common2.Enum.Sexo sexx = MyGym.Common2.Enum.Sexo.Femenino;
                 if (sex == 1)
-                    sexx = MyGym.Common.Enum.Sexo.Masculino;
+                    sexx = MyGym.Common2.Enum.Sexo.Masculino;
 
                 UserInformation user = new UserInformation()
                 {
@@ -70,10 +69,11 @@ namespace MyGym.Client.Library
                     Sex = sexx,
                     Weight = weight
                 };
+                string json=JsonConvert.SerializeObject(user);
                 client.BaseAddress = new Uri("http://localhost:5638");
                 var content = new FormUrlEncodedContent(new[] { 
-                new KeyValuePair<string, string> ("userdata",JsonConvert.SerializeObject(user))
-            });
+                    new KeyValuePair<string, string> ("userdata",json)
+                });
                 var result = client.PostAsync("/User/Register", content).Result;
                 string jsonresult = result.Content.ReadAsStringAsync().Result;
             }
@@ -126,21 +126,21 @@ namespace MyGym.Client.Library
                 //tbn al momento de enviar para guardar mandar como tipo int a: complexion y nivel
                 HttpClient client = new HttpClient();
 
-                MyGym.Common.Enum.ComplexionFisica compl = MyGym.Common.Enum.ComplexionFisica.Pequena;
+                MyGym.Common2.Enum.ComplexionFisica compl = MyGym.Common2.Enum.ComplexionFisica.Pequena;
                 if (complexion == 1)
-                    compl = MyGym.Common.Enum.ComplexionFisica.Mediana;
+                    compl = MyGym.Common2.Enum.ComplexionFisica.Mediana;
                 if (complexion == 2)
-                    compl = MyGym.Common.Enum.ComplexionFisica.Grande;
+                    compl = MyGym.Common2.Enum.ComplexionFisica.Grande;
 
-                MyGym.Common.Enum.Nivel niv = MyGym.Common.Enum.Nivel.MuyLeve;
+                MyGym.Common2.Enum.Nivel niv = MyGym.Common2.Enum.Nivel.MuyLeve;
                 if (nivel == 1)
-                    niv = MyGym.Common.Enum.Nivel.Leve;
+                    niv = MyGym.Common2.Enum.Nivel.Leve;
                 if (nivel == 2)
-                    niv = MyGym.Common.Enum.Nivel.Moderado;
+                    niv = MyGym.Common2.Enum.Nivel.Moderado;
                 if (nivel == 3)
-                    niv = MyGym.Common.Enum.Nivel.Intenso;
+                    niv = MyGym.Common2.Enum.Nivel.Intenso;
                 if (nivel == 4)
-                    niv = MyGym.Common.Enum.Nivel.Excepcional;
+                    niv = MyGym.Common2.Enum.Nivel.Excepcional;
 
 
                 UserInformation user = new UserInformation()
@@ -183,19 +183,19 @@ namespace MyGym.Client.Library
                 //RETORNA LAS DIETAS DEL DIA ACTUAL DE UN DETERMINADO USUARIO
                 var diaActual = DateTime.Today.DayOfWeek.ToString();
 
-                MyGym.Common.Enum.Dia dia = MyGym.Common.Enum.Dia.Lunes;
+                MyGym.Common2.Enum.Dia dia = MyGym.Common2.Enum.Dia.Lunes;
                 if (diaActual.Equals("Tuesday"))
-                    dia = MyGym.Common.Enum.Dia.Martes;
+                    dia = MyGym.Common2.Enum.Dia.Martes;
                 if (diaActual.Equals("Wednesday"))
-                    dia = MyGym.Common.Enum.Dia.Miercoles;
+                    dia = MyGym.Common2.Enum.Dia.Miercoles;
                 if (diaActual.Equals("Thursday"))
-                    dia = MyGym.Common.Enum.Dia.Jueves;
+                    dia = MyGym.Common2.Enum.Dia.Jueves;
                 if (diaActual.Equals("Friday"))
-                    dia = MyGym.Common.Enum.Dia.Viernes;
+                    dia = MyGym.Common2.Enum.Dia.Viernes;
                 if (diaActual.Equals("Saturday"))
-                    dia = MyGym.Common.Enum.Dia.Sabado;
+                    dia = MyGym.Common2.Enum.Dia.Sabado;
                 if (diaActual.Equals("Sunday"))
-                    dia = MyGym.Common.Enum.Dia.Domingo;
+                    dia = MyGym.Common2.Enum.Dia.Domingo;
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("http://localhost:5638/Diet/Get?userid=" + userid + "&day=" + dia);

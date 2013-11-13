@@ -34,28 +34,28 @@
             <TextBlock Name="txtIntruccion" Visibility="Collapsed"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Border Name="borde1"  BorderThickness="3">
-                    <Button Name="btnComplexionBaja" Width="100" Height="100" >
+                    <Button Name="btnComplexionBaja" Width="100" Height="100" Click="btnComplexionBaja_Click" >
                         <Button.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="/image/iconos/pequeno.jpg" />
                         </Button.Background>
                     </Button>
                 </Border>
                 <Border Name="borde2"  BorderThickness="3">
-                    <Button Name="btnComplexionMedia" Width="100" Height="100" >
+                    <Button Name="btnComplexionMedia" Width="100" Height="100" Click="btnComplexionMedia_Click" >
                         <Button.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="/image/iconos/medio.jpg" />
                         </Button.Background>
                     </Button>
                 </Border>
                 <Border Name="borde3"  BorderThickness="3">
-                    <Button Name="btnComplexionAlta" Width="100" Height="100" >
+                    <Button Name="btnComplexionAlta" Width="100" Height="100" Click="btnComplexionAlta_Click" >
                         <Button.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="/image/iconos/grande.jpg" />
                         </Button.Background>
                     </Button>
                 </Border>
             </StackPanel>
-            <Button Name="btnGuardar" Margin="0,160" Content="Save information" Width="270"  />
+            <Button Name="btnGuardar" Margin="0,160" Content="Save information" Width="270" Click="btnGuardar_Click"  />
         </StackPanel>
     </Grid>
 </phone:PhoneApplicationPage>

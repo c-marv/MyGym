@@ -28,7 +28,7 @@
             <ScrollViewer Height="650" Margin="10,0,10,0">
                 <StackPanel>
                     <Border BorderThickness="1" BorderBrush="White" Margin="10,8,10,8">
-                        <RadioButton>
+                        <RadioButton Name="rMuyLeve" >
                             <StackPanel>
                                 <TextBlock FontSize="30" Text="VERY MILD ACTIVITY:"/>
                                 <TextBlock TextWrapping="Wrap" Text="Activities in sitting and standing: paint, handle, work
@@ -37,7 +37,7 @@
                         </RadioButton>
                     </Border>
                     <Border BorderThickness="1" BorderBrush="White" Margin="10,8,10,8">
-                        <RadioButton>
+                        <RadioButton Name="rLeve">
                             <StackPanel>
                                 <TextBlock FontSize="30" Text="MILD ACTIVITY:"/>
                                 <TextBlock TextWrapping="Wrap" Text="Walking, electrical work, restaurant work, house cleaning, care
@@ -46,7 +46,7 @@
                         </RadioButton>
                     </Border>
                     <Border BorderThickness="1" BorderBrush="White" Margin="10,8,10,8">
-                        <RadioButton>
+                        <RadioButton Name="rModerada">
                             <StackPanel>
                                 <TextBlock FontSize="30" Text="MODERATE ACTIVITY:"/>
                                 <TextBlock TextWrapping="Wrap" Text="Walking briskly, mowing the lawn, dancing, biking on level ground,
@@ -56,7 +56,7 @@
                     </Border>
 
                     <Border BorderThickness="1" BorderBrush="White" Margin="10,8,10,8">
-                        <RadioButton>
+                        <RadioButton Name="rIntensa">
                             <StackPanel>
                                 <TextBlock FontSize="30" Text="INTENSE ACTIVITY:"/>
                                 <TextBlock TextWrapping="Wrap" Text="Walking with load uphill, tree felling, excavation
@@ -65,13 +65,14 @@
                         </RadioButton>
                     </Border>
                     <Border BorderThickness="1" BorderBrush="White" Margin="10,8,10,8">
-                        <RadioButton>
+                        <RadioButton Name="rExcepcional">
                             <StackPanel>
                                 <TextBlock FontSize="30" Text="EXCEPTIONAL:"/>
                                 <TextBlock TextWrapping="Wrap" Text="High Performance Athletes."/>
                             </StackPanel>
                         </RadioButton>
                     </Border>
+                    <Button Name="btnGuardar" Margin="0,160" Content="Save activities" Width="270" Click="btnGuardar_Click" />
 
                 </StackPanel>
             </ScrollViewer>

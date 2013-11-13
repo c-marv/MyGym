@@ -57,7 +57,7 @@
                             </Button>
                         </Border>
                     </StackPanel>
-                    <Button Name="btnGuardar" Margin="0,-10" Content="Save information" Width="270" Click="btnGuardar_Click"  />
+                    <Button Name="btnGuardar" Margin="0,-10" Content="Save data" Width="270" Click="btnGuardar_Click"  />
 
                 </StackPanel>
 

@@ -17,7 +17,6 @@ namespace MyGym.Client.WP8._2
         public MainPage()
         {
             InitializeComponent();
-
             Loaded += MainPage_Loaded;
         }
 

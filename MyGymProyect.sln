@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGym.Client.WP8", "MyGym.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGym.Client.WP8.2", "MyGym.Client.WP8.2\MyGym.Client.WP8.2.csproj", "{F4D58605-B9EC-4818-8881-E16D060F7D08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGym.Common2", "MyGym.Common2\MyGym.Common2.csproj", "{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,16 @@ Global
 		{F4D58605-B9EC-4818-8881-E16D060F7D08}.Release|x86.ActiveCfg = Release|x86
 		{F4D58605-B9EC-4818-8881-E16D060F7D08}.Release|x86.Build.0 = Release|x86
 		{F4D58605-B9EC-4818-8881-E16D060F7D08}.Release|x86.Deploy.0 = Release|x86
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Release|ARM.ActiveCfg = Release|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Release|x64.ActiveCfg = Release|Any CPU
+		{679D011E-4BB5-4F67-9E5A-A4523EF2E5FE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
