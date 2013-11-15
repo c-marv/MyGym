@@ -116,7 +116,7 @@
     <Compile Include="Controllers\API\DietController.cs" />
     <Compile Include="Controllers\API\ErrorHandler\APIErrorHandlerAttribute.cs" />
     <Compile Include="Controllers\API\ErrorHandler\JsonMessage.cs" />
-    <Compile Include="Controllers\API\ExerciceController.cs" />
+    <Compile Include="Controllers\API\ExerciseController.cs" />
     <Compile Include="Controllers\API\ReportController.cs" />
     <Compile Include="Controllers\API\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

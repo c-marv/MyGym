@@ -1,4 +1,5 @@
-﻿using MyGym.Common.Enum;
+﻿using MyGym.Common;
+using MyGym.Common.Enum;
 using MyGym.Data;
 using MyGym.Data.Entities;
 using MyGym.Service.Controllers.API.ErrorHandler;
@@ -23,6 +24,7 @@ namespace MyGym.Service.Models
             }
 
             Rutina rutina = new Rutina();
+            rutina.UsuarioID = user.UsuarioID;
             MyGymContext.DB.Rutina.Add(rutina);
             MyGymContext.DB.SaveChanges();
             DateTime date = new DateTime();
@@ -42,7 +44,7 @@ namespace MyGym.Service.Models
                     MyGymContext.DB.Actividad.Add(activities[i]);
                     MyGymContext.DB.SaveChanges();
                 }
-                return activities;
+                return APIFunctions.SuccessResult(toSerializable(activities), JsonMessage.Success);
             }
             else
             {
@@ -58,12 +60,34 @@ namespace MyGym.Service.Models
                     MyGymContext.DB.Actividad.Add(activities[i]);
                     MyGymContext.DB.SaveChanges();
                 }
-                return activities;
+                return APIFunctions.SuccessResult(toSerializable(activities), JsonMessage.Success);
             }
 
         }
+        private object toSerializable(List<Actividad> activities)
+        {
+            List<UserExercise> exercises = new List<UserExercise>();
+            foreach (var item in activities)
+            {
+                var exercise = MyGymContext.DB.Ejercicio.Find(item.EjercicioID);
+                exercises.Add(new UserExercise()
+                {
+                    Name = exercise.Nombre,
+                    Distance = exercise.Distancia,
+                    Duration = exercise.Duracion,
+                    Repetitons = exercise.Repeticiones,
+                    Sets = exercise.Sets,
+                    Type = exercise.Tipo.ToString(),
+                    Weight = exercise.Peso,
+                    Date = item.Fecha,
+                    Instructions = (from x in exercise.Instruccion select new Instruction() { Content = x.Content, Number = x.Step }).ToList()
+                });
+            }
+            return exercises;
+        }
         private IEnumerable<Actividad> GetSorted(bool sw)
         {
+            random = new Random();
             ExerciseRepository repo = new ExerciseRepository();
             List<List<Ejercicio>> lista = new List<List<Ejercicio>>();
             List<Ejercicio> cardio = repo.GetByType(TipoEjercicio.Cardio).ToList();

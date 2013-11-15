@@ -392,6 +392,7 @@ namespace MyGym.Data
                     }
                 });
                 #endregion
+                context.SaveChanges();
             }
             #endregion
             base.Seed(context);

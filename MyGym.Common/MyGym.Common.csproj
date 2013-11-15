@@ -49,6 +49,7 @@
     <Compile Include="Enum\TiempoComida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDiet.cs" />
+    <Compile Include="UserExercise.cs" />
     <Compile Include="UserRecord.cs" />
     <Compile Include="UserInformation.cs" />
   </ItemGroup>

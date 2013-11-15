@@ -10,7 +10,7 @@ using MyGym.Service.Models;
 
 namespace MyGym.Service.Controllers.API
 {
-    public class ExcercieController : Controller
+    public class ExerciseController : Controller
     {
         [HttpGet]
         [APIErrorHandler]
