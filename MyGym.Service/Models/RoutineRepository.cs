@@ -22,7 +22,6 @@ namespace MyGym.Service.Models
             {
                 return APIFunctions.ErrorResult(string.Format(JsonMessage.NotFound, "Usuario"));
             }
-
             Rutina rutina = new Rutina();
             rutina.UsuarioID = user.UsuarioID;
             MyGymContext.DB.Rutina.Add(rutina);
@@ -66,24 +65,7 @@ namespace MyGym.Service.Models
         }
         private object toSerializable(List<Actividad> activities)
         {
-            List<UserExercise> exercises = new List<UserExercise>();
-            foreach (var item in activities)
-            {
-                var exercise = MyGymContext.DB.Ejercicio.Find(item.EjercicioID);
-                exercises.Add(new UserExercise()
-                {
-                    Name = exercise.Nombre,
-                    Distance = exercise.Distancia,
-                    Duration = exercise.Duracion,
-                    Repetitons = exercise.Repeticiones,
-                    Sets = exercise.Sets,
-                    Type = exercise.Tipo.ToString(),
-                    Weight = exercise.Peso,
-                    Date = item.Fecha,
-                    Instructions = (from x in exercise.Instruccion select new Instruction() { Content = x.Content, Number = x.Step }).ToList()
-                });
-            }
-            return exercises;
+            return activities.Select(p => new { Date = p.Fecha, ExerciseID = p.EjercicioID });
         }
         private IEnumerable<Actividad> GetSorted(bool sw)
         {

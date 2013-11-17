@@ -8,6 +8,7 @@ namespace MyGym.Common
 {
     public class UserExercise
     {
+        public int ExerciseID { get; set; }
         public string Name { get; set; }
         public int Repetitons { get; set; }
         public int Sets { get; set; }

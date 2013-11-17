@@ -1,4 +1,5 @@
-﻿using MyGym.Common.Enum;
+﻿using MyGym.Common;
+using MyGym.Common.Enum;
 using MyGym.Data;
 using MyGym.Data.Entities;
 using System;
@@ -10,9 +11,26 @@ namespace MyGym.Service.Models
 {
     public class ExerciseRepository
     {
-        public Ejercicio Get(int exerciseID)
+        public Object Get(int exerciseID)
         {
-            var exercise = MyGymContext.DB.Ejercicio.Find(exerciseID);
+            var exercise = toSerializable(MyGymContext.DB.Ejercicio.Find(exerciseID));
+            return exercise;
+        }
+
+        private object toSerializable(Ejercicio ejercicio)
+        {
+            UserExercise exercise = new UserExercise()
+            {
+                ExerciseID=ejercicio.EjercicioID,
+                Name = ejercicio.Nombre,
+                Distance = ejercicio.Distancia,
+                Duration = ejercicio.Duracion,
+                Repetitons = ejercicio.Repeticiones,
+                Sets = ejercicio.Sets,
+                Type = ejercicio.Tipo.ToString(),
+                Weight = ejercicio.Peso,
+                Instructions = (from x in ejercicio.Instruccion select new Instruction() { Content = x.Content, Number = x.Step }).ToList()
+            };
             return exercise;
         }
         /// <summary>
