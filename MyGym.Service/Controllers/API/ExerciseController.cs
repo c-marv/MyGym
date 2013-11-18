@@ -17,6 +17,5 @@ namespace MyGym.Service.Controllers.API
             var result = new ExerciseRepository().Get(exerciseID);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

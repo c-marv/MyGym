@@ -1,0 +1,35 @@
+﻿{
+	"success" : true,
+	"data" :
+		{
+			"ExerciseID" : 1,
+			"Name" : "Sentadillas libres",
+			"Repetitons" : 25,
+			"Sets" : 5,
+			"Duration" : 0,
+			"Distance" : 0,
+			"Weight" : 0,
+			"Date" : "\/Date(-62135582400000)\/",
+			"Instructions" : [
+				{
+					"Content" : "Comenzar con los pies separados siguiendo el ancho de los hombros, con los dedos levemente hacia afuera.",
+					"Number" : 1
+				},
+				{
+					"Content" : "Mantener la cabeza arriba, con la mirada apenas por encima del paralelo.",
+					"Number" : 2
+				},
+				{	
+					"Content" : "No bajar la mirada; el suelo está en visión periférica únicamente.",
+					"Number" : 3
+				},
+				{
+					"Content" : "Acentuar el arco normal de la curva lumbar y luego quitar el arco excesivo con los abdominales.",
+					"Number" : 4
+				}
+			],
+			"Images" : null,
+			"Type" : "Gimnastics"
+		},
+	"message" : ""
+}

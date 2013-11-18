@@ -204,6 +204,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\APIHelper\JsonSamples\Diet\Diet.Get.json" />
+    <Content Include="Models\APIHelper\JsonSamples\Routine\Routine.Get.json" />
+    <Content Include="Models\APIHelper\JsonSamples\Exercise\Diet.Get.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.Delete.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.LogIn.json" />
     <None Include="Models\APIHelper\JsonSamples\User\User.Update.Get.json" />

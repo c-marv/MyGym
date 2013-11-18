@@ -2,6 +2,8 @@
 using MyGym.Common.Enum;
 using MyGym.Data;
 using MyGym.Data.Entities;
+using MyGym.Service.Controllers.API.ErrorHandler;
+using MyGym.Service.Models.APIHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +33,7 @@ namespace MyGym.Service.Models
                 Weight = ejercicio.Peso,
                 Instructions = (from x in ejercicio.Instruccion select new Instruction() { Content = x.Content, Number = x.Step }).ToList()
             };
-            return exercise;
+            return APIFunctions.SuccessResult(exercise, JsonMessage.Success);
         }
         /// <summary>
         /// Retorna los ejercicios por un tipo

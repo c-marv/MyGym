@@ -164,12 +164,12 @@ namespace MyGym.Service.Models.APIHelper
                 }
             });
             #endregion
-            #region Exercise API
+            #region Routine API
             context.API.Add(new APIObject()
             {
                 Controller = "Routine",
                 Action = "Get",
-                JsonGet = System.IO.File.OpenText(currentpath + "\\JsonSamples\\Diet\\Diet.Get.json").ReadToEnd(),
+                JsonGet = System.IO.File.OpenText(currentpath + "\\JsonSamples\\Routine\\Routine.Get.json").ReadToEnd(),
                 JsonPost = null,
                 Description = "Retorna la rutina del usuario",
                 Type = Tipo.GET,
@@ -187,10 +187,31 @@ namespace MyGym.Service.Models.APIHelper
                         Name="mode",
                         Description="Representa el modo en el cual el usuario quiere la rutina de 3 o 5 dias.",
                         Definition=Models.APIHelper.Definition.URL,
-                        Information="Parametro definido en la url"
+                        Information="Parametro definido en la url booleano"
                     }
                 }
             });
+            #endregion
+            #region Exercise API
+            context.API.Add(new APIObject()
+                {
+                    Controller = "Exercise",
+                    Action = "Get",
+                    JsonGet = System.IO.File.OpenText(currentpath + "\\JsonSamples\\Exercise\\Exercise.Get.json").ReadToEnd(),
+                    JsonPost = null,
+                    Description = "Retorna el ejercicio solicitado",
+                    Type = Tipo.GET,
+                    Parameters = new List<APIParameter>()
+                    {
+                        new APIParameter()
+                        {
+                            Name="exerciseID",
+                            Description="Representa el id del ejercicio",
+                            Definition=Models.APIHelper.Definition.URL,
+                            Information="Parametro definido en la url"
+                        }
+                    }
+                });
             #endregion
             base.Seed(context);
         }

@@ -1,0 +1,17 @@
+﻿{	
+	"success" : true,
+	"data" : [
+		{
+			"Date" : "\/Date(1384784849511)\/",
+			"ExerciseID" : 5
+		},
+		{
+			"Date" : "\/Date(1384871249524)\/",
+			"ExerciseID" : 1
+		},
+		{
+			"Date" : "\/Date(1384957649532)\/","ExerciseID" : 3
+		}
+	],
+	"message" : ""
+}
